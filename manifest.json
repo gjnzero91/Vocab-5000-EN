@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Vocab 5000 EN",
+  "version": "1.0",
+  "description": "Hiển thị từ vựng tiếng Anh mỗi phút",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "index.html"
+  }
+}

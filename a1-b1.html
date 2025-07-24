@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vocab 5000 EN</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div id="container" class="app-container">
+    <div class="top-bar">
+      <span id="starIcon" class="icon">⭐</span>
+      <span id="shuffleToggle" class="icon active">🎲</span>
+      <span id="clockToggle" class="icon">⏱️</span>
+      <span id="searchIcon" class="icon">🔍</span>
+    </div>
+
+    <div id="countdownDialog" class="countdown-dialog hidden">
+      <input type="number" id="countdownInput" placeholder="Enter countdown seconds" min="1" />
+      <button id="setCountdownBtn">Set</button>
+      <button id="cancelCountdownBtn">Cancel</button>
+    </div>
+    
+    <div id="searchDialog" class="search-dialog hidden">
+      <input type="text" id="searchInput" placeholder="Search for a word...">
+      <button id="searchBtn">Find</button>
+    </div>
+
+    <div id="timeWrapper" style="display: none;">
+      <div id="countdown">30</div>
+    </div>
+
+    <div class="content">
+      <div id="wordDisplay" class="word">Loading...</div>
+      <div id="posDisplay" class="pos"></div>
+      <div id="ipaDisplay" class="ipa"><span></span><button id="pronounce">🔊</button></div>
+    </div>
+
+    <div class="buttons">
+      <button id="prev">Previous</button>
+      <button id="next">Next</button>
+    </div>
+
+    <div class="page-title">A1-B1</div>
+
+    <div class="progress-bar-container">
+    <div id="progressBar"></div>
+    </div>
+    
+    <div class="no-border-top">
+      <button id="homeBtn" class="home-btn">Home</button>
+      <span id="userGreeting" class="user-greeting"></span>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </div>
+  <script src="script.js" defer></script>
+</body>

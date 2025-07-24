@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Vocab 5000 EN</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div id="authContainer" class="auth-container">
+    <h2>Login / Register</h2>
+    <input type="email" id="emailInput" placeholder="Email" />
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <button id="loginBtn">Login</button>
+    <button id="registerBtn">Register</button>
+    <button id="googleLoginBtn">
+    <img src="https://www.google.com/favicon.ico" alt="Google Logo" class="google-logo">
+    Login with Google
+    </button>
+    <p id="authMessage" class="auth-message"></p>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
