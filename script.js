@@ -4,18 +4,47 @@
 
 // Firebase Config
 const firebaseConfig = {
-  apiKey: "AIzaSyBLTEDxQMMi9AYo5GaloJXhNOpBDh2gIkA",
-  authDomain: "vocab-5000-en.firebaseapp.com",
-  projectId: "vocab-5000-en",
-  storageBucket: "vocab-5000-en.appspot.com",
-  messagingSenderId: "862301373586",
-  appId: "1:862301373586:web:3bd8971ea94a97a0d9524b",
+  apiKey: "AIzaSyDHAr8A7pV5VG8vlT-JyMu0sX6PoX9VAfY",
+  authDomain: "vocab-5000-en-13cda.firebaseapp.com",
+  projectId: "vocab-5000-en-13cda",
+  storageBucket: "vocab-5000-en-13cda.firebasestorage.app",
+  messagingSenderId: "354480151513",
+  appId: "1:354480151513:web:3c52157c1b071f237417c8",
+  measurementId: "G-S471NR63TR"
 };
 firebase.initializeApp(firebaseConfig);
 
 // Khai báo các đối tượng Firebase
 const auth = firebase.auth();
 const currentPath = window.location.pathname;
+
+const db = firebase.firestore();
+async function saveUserData(userId) {
+  if (!userId) return;
+  try {
+    await db.collection("users").doc(userId).set({
+      bookStates,
+      starredWords,
+    });
+  } catch (error) {
+    console.error("Error when saving data:", error);
+  }
+}
+
+async function loadUserData(userId) {
+  if (!userId) return;
+  try {
+    const doc = await db.collection("users").doc(userId).get();
+    if (doc.exists) {
+      const data = doc.data();
+      if (data.bookStates) bookStates = data.bookStates;
+      if (data.starredWords) starredWords = data.starredWords;
+    }
+  } catch (error) {
+    console.error("Error when downloading data:", error);
+  }
+}
+
 
 // Khai báo các biến DOM
 let loginBtn, registerBtn, googleLoginBtn, emailInput, passwordInput, authMessage; // Login/Register page
@@ -483,15 +512,18 @@ function handleAppLogic(initialBookKey) {
  * Nếu đã đăng nhập, chuyển hướng đến trang phù hợp.
  * Nếu chưa đăng nhập, chuyển hướng đến trang login.
  */
-auth.onAuthStateChanged((user) => {
+auth.onAuthStateChanged(async (user) => {
   if (user) {
-    // Đã đăng nhập
+    const userId = user.uid;
+    await loadUserData(userId); // ⬅ tải dữ liệu từ Firebase
+
     const name = user.displayName || user.email?.split("@")[0] || "User";
     const userGreetingElement = document.getElementById("userName");
     if (userGreetingElement) {
       userGreetingElement.textContent = `Hi, ${name}`;
     }
 
+    // Điều hướng trang
     if (currentPath.includes("login.html") || currentPath.includes("index.html")) {
       window.location.href = "home.html";
     } else if (currentPath.includes("home.html")) {
@@ -504,13 +536,16 @@ auth.onAuthStateChanged((user) => {
       handleAppLogic('wordTarget');
     }
   } else {
-    // Chưa đăng nhập
     if (!currentPath.includes("login.html") && !currentPath.includes("index.html")) {
       window.location.href = "login.html";
-    } else if (currentPath.includes("login.html") || currentPath.includes("index.html")) {
+    } else {
       handleLoginLogic();
     }
   }
 });
 
-
+function saveState() {
+  localStorage.setItem('bookStates', JSON.stringify(bookStates));
+  const user = auth.currentUser;
+  if (user) saveUserData(user.uid); // ⬅ Lưu vào Firebase
+}
