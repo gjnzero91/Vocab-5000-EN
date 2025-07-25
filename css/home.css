@@ -1,0 +1,145 @@
+/* ==========================================================================
+   Base Styles & Layout
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Page Containers
+   ========================================================================== */
+#container {
+  background-color: #25253e;
+  border-radius: 15px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   Title For The Home Page
+   ========================================================================== */
+#homeTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+/* ==========================================================================
+   Book Selection Buttons
+   ========================================================================== */
+.book-selection-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.book-selection-btn:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.3);
+}
+
+.book-selection-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Bottom Line
+   ========================================================================== */
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+/* ==========================================================================
+   Home Buttons
+   ========================================================================== */
+.home-btn {
+  background-color: #ff9f22;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(255, 159, 34, 0.4);
+}
+
+.home-btn:hover {
+  background-color: #e68a1f;
+  box-shadow: 0 6px 15px rgba(255, 159, 34, 0.4);
+}
+
+.home-btn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Name User
+   ========================================================================== */
+.user-greeting {
+  margin: 0;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+  font-style: italic;
+}
+
+/* ==========================================================================
+   Logout Buttons
+   ========================================================================== */
+.logout-btn {
+  background-color: #dc3545;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.4);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+}
