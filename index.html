@@ -3,28 +3,55 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vocab 5000 EN</title>
+  <title>Welcome to Vocab 5000 EN</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
-  </head>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <style>
+    /* Thêm style riêng cho trang landing nếu cần */
+    .landing-container {
+      background-color: #25253e;
+      border-radius: 15px;
+      padding: 30px 25px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    .landing-container h1 {
+      color: #e0e0e0;
+      margin-bottom: 20px;
+      font-size: 2em;
+    }
+    .landing-container p {
+      color: #cccccc;
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+    .landing-button {
+      background-color: #007bff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.1s ease;
+    }
+    .landing-button:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
 <body>
-  <script src="js/main.js" type="module"></script>
-</body>
-</html>
-  <div id="authContainer" class="auth-container">
-    <h2>Login / Register</h2>
-    <input type="email" id="emailInput" placeholder="Email" />
-    <input type="password" id="passwordInput" placeholder="Password" />
-    <button id="loginBtn">Login</button>
-    <button id="registerBtn">Register</button>
-    <button id="googleLoginBtn">
-    <img src="https://www.google.com/favicon.ico" alt="Google Logo" class="google-logo">
-    Login with Google
-    </button>
-    <p id="authMessage" class="auth-message"></p>
+  <div id="container" class="landing-container">
+    <h1>Welcome to Vocab 5000 EN!</h1>
+    <p>Your journey to mastering English vocabulary starts here. Explore thousands of words, track your progress, and learn efficiently.</p>
+    <button id="getStartedBtn" class="landing-button">Get Started</button>
   </div>
-  <script src="script.js"></script>
+
+  <script src="js/main.js" type="module"></script>
 </body>
 </html>
