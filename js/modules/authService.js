@@ -2,24 +2,18 @@
 import { auth } from './firebaseConfig.js';
 
 /**
- * Xử lý đăng nhập bằng email và mật khẩu.
- * @param {string} email
- * @param {string} password
- * @returns {Promise<firebase.auth.UserCredential>}
+ * Đăng nhập bằng email và mật khẩu.
  */
 export async function signInWithEmail(email, password) {
   try {
     return await auth.signInWithEmailAndPassword(email, password);
   } catch (error) {
-    throw error; // Ném lỗi để xử lý ở tầng UI
+    throw error;
   }
 }
 
 /**
- * Xử lý đăng ký bằng email và mật khẩu.
- * @param {string} email
- * @param {string} password
- * @returns {Promise<firebase.auth.UserCredential>}
+ * Đăng ký bằng email và mật khẩu.
  */
 export async function createUserWithEmail(email, password) {
   try {
@@ -30,8 +24,7 @@ export async function createUserWithEmail(email, password) {
 }
 
 /**
- * Xử lý đăng nhập bằng Google.
- * @returns {Promise<firebase.auth.UserCredential>}
+ * Đăng nhập bằng Google.
  */
 export async function signInWithGoogle() {
   try {
@@ -44,7 +37,6 @@ export async function signInWithGoogle() {
 
 /**
  * Đăng xuất người dùng.
- * @returns {Promise<void>}
  */
 export async function signOutUser() {
   try {
@@ -56,13 +48,7 @@ export async function signOutUser() {
 }
 
 /**
- * Thiết lập các sự kiện cho form đăng nhập/đăng ký.
- * @param {HTMLElement} loginBtn
- * @param {HTMLElement} registerBtn
- * @param {HTMLElement} googleLoginBtn
- * @param {HTMLInputElement} emailInput
- * @param {HTMLInputElement} passwordInput
- * @param {HTMLElement} authMessage
+ * Thiết lập sự kiện cho form đăng nhập/đăng ký.
  */
 export function setupAuthForms(loginBtn, registerBtn, googleLoginBtn, emailInput, passwordInput, authMessage) {
   if (loginBtn) {
@@ -75,7 +61,6 @@ export function setupAuthForms(loginBtn, registerBtn, googleLoginBtn, emailInput
       }
     };
   }
-
   if (registerBtn) {
     registerBtn.onclick = async () => {
       try {
@@ -86,7 +71,6 @@ export function setupAuthForms(loginBtn, registerBtn, googleLoginBtn, emailInput
       }
     };
   }
-
   if (googleLoginBtn) {
     googleLoginBtn.onclick = async () => {
       try {
