@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Vocab 5000 EN</title>
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </head>
 <body>
   <div id="authContainer" class="auth-container">
@@ -16,11 +20,11 @@
     <button id="loginBtn">Login</button>
     <button id="registerBtn">Register</button>
     <button id="googleLoginBtn">
-      <img src="https://www.google.com/favicon.ico" alt="Google Logo" class="google-logo">
+      <img src="https://www.google.com/favicon.ico" alt="Google Logo" class="google-logo" />
       Login with Google
     </button>
     <p id="authMessage" class="auth-message"></p>
   </div>
-  <script src="js/main.js" type="module"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
