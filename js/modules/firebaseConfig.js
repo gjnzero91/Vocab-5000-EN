@@ -1,7 +1,10 @@
 // js/modules/firebaseConfig.js
+<<<<<<< HEAD
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
+=======
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 
 // 1. CẤU HÌNH VÀ KHỞI TẠO FIREBASE
 const firebaseConfig = {

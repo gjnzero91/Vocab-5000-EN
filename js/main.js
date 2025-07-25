@@ -134,6 +134,7 @@ async function handleAppLogic(initialBookKey) {
     }
   }
 
+<<<<<<< HEAD
   async function loadStateAndData() {
     loadLocalState();
     const user = auth.currentUser;
@@ -157,6 +158,24 @@ async function handleAppLogic(initialBookKey) {
     }
     loadBook();
   }
+=======
+  const loadStateAndData = async () => {
+    loadLocalState();
+    const user = auth.currentUser;
+    if (user) {
+      await loadUserDataFromFirestore(user.uid);
+    }
+    await initializeBookData(currentBookKey);
+    const bookState = getBookState(currentBookKey);
+    if (shuffleToggle) {
+      shuffleToggle.classList.toggle('active', bookState.shuffleMode);
+    }
+    if (countdownElement) {
+      countdownElement.textContent = bookState.countdownTime;
+    }
+    loadBook();
+  };
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 
   if (pronounceBtn) {
     pronounceBtn.onclick = () => {

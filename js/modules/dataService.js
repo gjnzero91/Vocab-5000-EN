@@ -1,10 +1,15 @@
 // js/modules/dataService.js
+<<<<<<< HEAD
 import { db, auth } from './firebaseConfig.js';
+=======
+import { db } from './firebaseConfig.js';
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 
 // URLs của Google Sheets
 const sheetURL3000 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_ZxHDx2YJ9jtrkTyhEzSWdw7Z7V9wdtGugkXiKQqsD6qB8RERy5lJpxoobN4EXTFbCVwyrnhbuMnO/pub?gid=0&single=true&output=csv";
 const sheetURL5000 = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR_ZxHDx2YJ9jtrkTyhEzSWdw7Z7V9wdtGugkXiKQqsD6qB8RERy5lJpxoobN4EXTFbCVwyrnhbuMnO/pub?gid=2053150601&single=true&output=csv";
 
+<<<<<<< HEAD
 
 // ----------------------------------------------------
 // Lấy dữ liệu từ Google Sheets
@@ -80,6 +85,50 @@ export async function initializeBookData(bookKey) {
 // ----------------------------------------------------
 // Lưu trạng thái người dùng vào Firestore
 // ----------------------------------------------------
+=======
+/**
+ * Lấy dữ liệu từ Google Sheets.
+ */
+async function fetchCSV(url) {
+  const response = await fetch(url);
+  const text = await response.text();
+  const lines = text.split('\\n');
+  // Giả sử CSV có định dạng word, phonetic, meaning
+  const words = lines.slice(1).map(line => {
+    const parts = line.split(',');
+    return { word: parts[0], phonetic: parts[1], meaning: parts[2] };
+  });
+  return words;
+}
+
+/**
+ * Khởi tạo dữ liệu ban đầu cho sách.
+ */
+export async function initializeBookData(bookKey) {
+  const bookStates = getBookStates();
+  const state = getBookState(bookKey);
+  if (state.words.length === 0) {
+    let words = [];
+    if (bookKey === '3000') {
+      words = await fetchCSV(sheetURL3000);
+    } else if (bookKey === '5000') {
+      words = await fetchCSV(sheetURL5000);
+    } else if (bookKey === 'wordTarget') {
+      words = getStarredWords();
+    }
+    setBookStateProperty(bookKey, 'words', words);
+    setBookStateProperty(bookKey, 'originalWords', [...words]);
+    saveLocalState();
+    if (auth.currentUser) {
+      saveUserDataToFirestore(auth.currentUser.uid);
+    }
+  }
+}
+
+/**
+ * Lưu trạng thái người dùng vào Firestore.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export async function saveUserDataToFirestore(userId) {
   if (!userId) return;
   const bookStates = getBookStates();
@@ -90,9 +139,15 @@ export async function saveUserDataToFirestore(userId) {
   }
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Tải trạng thái người dùng từ Firestore
 // ----------------------------------------------------
+=======
+/**
+ * Tải trạng thái người dùng từ Firestore.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export async function loadUserDataFromFirestore(userId) {
   if (!userId) return;
   try {
@@ -106,17 +161,29 @@ export async function loadUserDataFromFirestore(userId) {
   }
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Lưu trạng thái vào LocalStorage
 // ----------------------------------------------------
+=======
+/**
+ * Lưu trạng thái vào LocalStorage.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function saveLocalState() {
   const bookStates = getBookStates();
   localStorage.setItem("bookStates", JSON.stringify(bookStates));
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Tải trạng thái từ LocalStorage
 // ----------------------------------------------------
+=======
+/**
+ * Tải trạng thái từ LocalStorage.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function loadLocalState() {
   const data = localStorage.getItem("bookStates");
   if (data) {
@@ -132,34 +199,58 @@ export function loadLocalState() {
   }
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Lấy toàn bộ trạng thái sách
 // ----------------------------------------------------
+=======
+/**
+ * Lấy toàn bộ trạng thái sách.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function getBookStates() {
   const data = JSON.parse(localStorage.getItem("bookStates"));
   return data;
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Lấy trạng thái của một cuốn sách
 // ----------------------------------------------------
+=======
+/**
+ * Lấy trạng thái của một cuốn sách.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function getBookState(bookKey) {
   const bookStates = getBookStates();
   return bookStates[bookKey];
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Cập nhật một thuộc tính của trạng thái sách
 // ----------------------------------------------------
+=======
+/**
+ * Cập nhật một thuộc tính của trạng thái sách.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function setBookStateProperty(bookKey, prop, value) {
   const bookStates = getBookStates();
   bookStates[bookKey][prop] = value;
   localStorage.setItem("bookStates", JSON.stringify(bookStates));
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Đổi trạng thái đánh dấu sao của một từ
 // ----------------------------------------------------
+=======
+/**
+ * Đổi trạng thái đánh dấu sao của một từ.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function toggleStarredWord(wordObj) {
   const starredState = getBookState('wordTarget');
   const index = starredState.words.findIndex(w => w.word === wordObj.word);
@@ -172,9 +263,15 @@ export function toggleStarredWord(wordObj) {
   setBookStateProperty('wordTarget', 'originalWords', [...starredState.words]);
 }
 
+<<<<<<< HEAD
 // ----------------------------------------------------
 // Lấy danh sách từ đã đánh dấu sao
 // ----------------------------------------------------
+=======
+/**
+ * Lấy danh sách từ đã đánh dấu sao.
+ */
+>>>>>>> 1b627e9a5f889384fc218102de95a9cee8a5a4c9
 export function getStarredWords() {
   const starredState = getBookState('wordTarget');
   return starredState.words;
