@@ -3,35 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vocab 5000 EN</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <title>Home - Vocab 5000 EN</title>
+  <link rel="stylesheet" href="css/home.css" />
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </head>
 <body>
   <div id="container" class="app-container">
-
-      <div class="top-bar">
+    <div class="top-bar">
       <span id="userName" class="user-greeting"></span>
     </div>
-
     <div class="content">
       <div id="homeTitle">HOME</div>
     </div>
-
-  <div id="bookSelectionContainer">
-    <div id="bookSelection">
-      <button id="bookA1B1Btn" class="book-selection-btn">📦A1-B1</button>
-      <button id="bookB2C2Btn" class="book-selection-btn">📦B2-C2</button>
-      <button id="bookStarredBtn" class="book-selection-btn">⭐Starred</button>
-   </div>
-  </div>
-    
+    <div id="bookSelectionContainer">
+      <div id="bookSelection">
+        <button id="bookA1B1Btn" class="book-selection-btn">📦 A1-B1</button>
+        <button id="bookB2C2Btn" class="book-selection-btn">📦 B2-C2</button>
+        <button id="bookStarredBtn" class="book-selection-btn">⭐ Starred</button>
+      </div>
+    </div>
     <div class="bottom-bar">
       <button id="homeBtn" class="home-btn">Home</button>
       <span id="userGreeting" class="user-greeting"></span>
       <button id="logoutBtn" class="logout-btn">Logout</button>
     </div>
   </div>
-  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
+</html>

@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Base Styles & Layout
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Container For Login
+   ========================================================================== */
+#authContainer {
+  background-color: #25253e;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ==========================================================================
+   Login / Register Forms
+   ========================================================================== */
+#authContainer h2 {
+  color: #e0e0e0;
+  margin-bottom: 35px;
+  font-size: 28px;
+  font-weight: 600;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   Input Fields For Email And Password
+   ========================================================================== */
+#emailInput,
+#passwordInput {
+  width: 100%;
+  padding: 14px 12px;
+  margin-bottom: 18px;
+  border: 1px solid #444;
+  border-radius: 10px;
+  background-color: #3a3a4e;
+  color: #f0f0f0;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
+}
+
+#emailInput::placeholder,
+#passwordInput::placeholder {
+  color: #999;
+}
+
+#emailInput:focus,
+#passwordInput:focus {
+  border-color: #0a84ff;
+  box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.3);
+}
+
+/* ==========================================================================
+   Primary Login Button
+   ========================================================================== */
+#loginBtn {
+  background-color: #0a84ff;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 132, 255, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+#loginBtn:hover {
+  background-color: #0060df;
+  box-shadow: 0 6px 20px rgba(0, 132, 255, 0.4);
+}
+
+#loginBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(0, 132, 255, 0.2);
+}
+
+/* ==========================================================================
+   Primary Register Button
+   ========================================================================== */
+#registerBtn{
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+#registerBtn {
+  background-color: #6c757d;
+  box-shadow: 0 4px 15px rgba(108, 117, 125, 0.3);
+}
+
+#registerBtn:hover {
+  background-color: #5a6268;
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.4);
+}
+
+#registerBtn:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   Primary Google Button
+   ========================================================================== */
+#googleLoginBtn {
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 15px;
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+#googleLoginBtn {
+  background-color: #db4437;
+  box-shadow: 0 4px 15px rgba(219, 68, 55, 0.3);
+}
+
+#googleLoginBtn:hover {
+  background-color: #c0392b;
+  box-shadow: 0 6px 20px rgba(219, 68, 55, 0.4);
+}
+
+#googleLoginBtn:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 8px rgba(219, 68, 55, 0.2);
+}
+
+.google-logo {
+  height: 20px;
+  width: auto;
+}
+
+/* ==========================================================================
+   Error/Success Message For Authentication
+   ========================================================================== */
+#authMessage {
+  color: #ff6b6b;
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  height: 20px;
+}

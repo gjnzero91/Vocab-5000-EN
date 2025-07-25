@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vocab 5000 EN</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <title>A1-B1 - Vocab 5000 EN</title>
+  <link rel="stylesheet" href="css/global.css" />
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </head>
 <body>
   <div id="container" class="app-container">
@@ -24,7 +28,7 @@
     </div>
     
     <div id="searchDialog" class="search-dialog hidden">
-      <input type="text" id="searchInput" placeholder="Search for a word...">
+      <input type="text" id="searchInput" placeholder="Search for a word..." />
       <button id="searchBtn">Find</button>
     </div>
 
@@ -35,7 +39,9 @@
     <div class="content">
       <div id="wordDisplay" class="word">Loading...</div>
       <div id="posDisplay" class="pos"></div>
-      <div id="ipaDisplay" class="ipa"><span></span><button id="pronounce">🔊</button></div>
+      <div id="ipaDisplay" class="ipa">
+        <span></span><button id="pronounce">🔊</button>
+      </div>
     </div>
 
     <div class="buttons">
@@ -46,7 +52,7 @@
     <div class="page-title">A1-B1</div>
 
     <div class="progress-bar-container">
-    <div id="progressBar"></div>
+      <div id="progressBar"></div>
     </div>
     
     <div class="no-border-top">
@@ -55,5 +61,6 @@
       <button id="logoutBtn" class="logout-btn">Logout</button>
     </div>
   </div>
-  <script src="script.js" defer></script>
+  <script type="module" src="js/main.js"></script>
 </body>
+</html>

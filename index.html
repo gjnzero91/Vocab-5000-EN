@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login - Vocab 5000 EN</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <title>Vocab 5000 EN</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <!-- Firebase App (core SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <!-- Firebase Authentication -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+  <!-- Firebase Firestore -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
 </head>
 <body>
-  <div id="authContainer" class="auth-container">
-    <h2>Login / Register</h2>
-    <input type="email" id="emailInput" placeholder="Email" />
-    <input type="password" id="passwordInput" placeholder="Password" />
-    <button id="loginBtn">Login</button>
-    <button id="registerBtn">Register</button>
-    <button id="googleLoginBtn">
-    <img src="https://www.google.com/favicon.ico" alt="Google Logo" class="google-logo">
-    Login with Google
-    </button>
-    <p id="authMessage" class="auth-message"></p>
+  <div id="container" class="app-container">
+    <h1 class="page-title">Vocab 5000 EN</h1>
+    <p style="text-align: center; margin: 20px 0;">Your journey to mastering English vocabulary starts here.
+      Explore thousands of words, track your progress, and learn efficiently.</p>
+    <div style="text-align: center;">
+      <button id="getStartedBtn" class="home-btn">Get Started</button>
+    </div>
   </div>
-  <script src="script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,72 @@
+/* ==========================================================================
+   Base Styles & Layout
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Page Containers
+   ========================================================================== */
+#container {
+  background-color: #25253e;
+  border-radius: 15px;
+  padding: 30px 25px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* ==========================================================================
+   Title For Index Page
+   ========================================================================== */
+.page-title {
+  text-align: center;
+  color: #a0a0a075;
+  font-size: 32px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* ==========================================================================
+   Get Started Button
+   ========================================================================== */
+.home-btn {
+  background-color: #ff9f22;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 10px rgba(255, 159, 34, 0.4);
+}
+
+.home-btn:hover {
+  background-color: #e68a1f;
+  box-shadow: 0 6px 15px rgba(255, 159, 34, 0.4);
+}
+
+.home-btn:active {
+  transform: scale(0.98);
+}
